@@ -9,7 +9,7 @@ WORKDIR /ditiss-project1
 
 ADD . /ditiss-project1
 
-COPY backend/requirements.txt /ditiss-pro1/requirements.txt
+COPY PR/requirements.txt /ditiss-pro1/requirements.txt
 
 RUN pip3 install --upgrade pip
 
