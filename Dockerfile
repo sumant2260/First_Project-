@@ -17,4 +17,4 @@ RUN pip3 install -r requirements.txt
 
 COPY . /ditiss-project1
 
-CMD ["python3", "PR/manage.py", "runserver", "0.0.0.0:8000"]  
+CMD ["python3", "WebApp/manage.py", "runserver", "0.0.0.0:8000"]  
