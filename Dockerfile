@@ -1,25 +1,20 @@
-FROM  ubuntu:20.04
-RUN yum install -y httpd \
- zip\
- unzip
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
-WORKDIR /var/www/html/
-RUN unzip photogenic.zip
-RUN cp -rvf photogenic/* .
-RUN rm -rf photogenic photogenic.zip
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-EXPOSE 80
- 
- 
-# FROM  centos:latest
-# MAINTAINER vikashashoke@gmail.com
-# RUN yum install -y httpd \
-#  zip\
-#  unzip
-# ADD https://www.free-css.com/assets/files/free-css-templates/download/page265/shine.zip /var/www/html/
-# WORKDIR /var/www/html/
-# RUN unzip shine.zip
-# RUN cp -rvf shine/* .
-# RUN rm -rf shine shine.zip
-# CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
-# EXPOSE 80   
+# syntax=docker/dockerfile:1
+FROM python:3
+
+# ENV PYTHONDONTWRITEBYTECODE=1
+
+ENV PYTHONUNBUFFERED 1
+
+WORKDIR /ditiss-project1
+
+ADD . /ditiss-project1
+
+COPY backend/requirements.txt /ditiss-pro1/requirements.txt
+
+RUN pip3 install --upgrade pip
+
+RUN pip3 install -r requirements.txt
+
+COPY . /ditiss-project1
+
+CMD ["python3", "PR/manage.py", "runserver", "0.0.0.0:8000"]  
