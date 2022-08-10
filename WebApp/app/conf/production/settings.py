@@ -9,7 +9,7 @@ SECRET_KEY = '3d305kajG5Jy8KBafCMpHwDIsNi0SqVaW'
 
 DEBUG = False
 ALLOWED_HOSTS = [
-    '*',
+    '3.7.46.164',
 ]
 
 SITE_ID = 1
